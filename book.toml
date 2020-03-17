@@ -1,0 +1,19 @@
+[book]
+authors = ["Roman M."]
+language = "ru"
+multilingual = false
+src = "src"
+title = "holteronomicon"
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+renderer = ["html"]
+
+[output.html]
+additional-css = ["assets/mermaid.css"]
+additional-js = ["assets/mermaid.min.js", "assets/mermaid-init.js"]
+
+
+[build]
+build-dir = "book"
+use-default-preprocessors = false
