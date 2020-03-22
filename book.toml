@@ -13,6 +13,10 @@ renderer = ["html"]
 additional-css = ["assets/mermaid.css"]
 additional-js = ["assets/mermaid.min.js", "assets/mermaid-init.js"]
 
+#[output.latex]
+#latex    = true  # default = true
+#pdf      = true  # default = false
+#markdown = true  # default = false
 
 [build]
 build-dir = "book"
