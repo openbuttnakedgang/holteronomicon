@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Пример - holteronomicon</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../assets/mermaid.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../preface.html">Титул</a></li><li class="chapter-item expanded "><a href="../intro.html"><strong aria-hidden="true">1.</strong> Интро</a></li><li class="chapter-item expanded "><a href="../usage.html"><strong aria-hidden="true">2.</strong> Цикл работы</a></li><li class="chapter-item expanded "><a href="../command.html"><strong aria-hidden="true">3.</strong> Команды</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../command/proto.html"><strong aria-hidden="true">3.1.</strong> Протокол</a></li><li class="chapter-item expanded "><a href="../command/scheme.html"><strong aria-hidden="true">3.2.</strong> Схема</a></li><li class="chapter-item expanded "><a href="../command/example.html" class="active"><strong aria-hidden="true">3.3.</strong> Пример</a></li></ol></li><li class="chapter-item expanded "><a href="../bootloader.html"><strong aria-hidden="true">4.</strong> Загрузчик</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">holteronomicon</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#Пример" id="Пример">Пример</a></h1>
+<p>Пример СО:</p>
+<pre><code class="language-json">{
+    &quot;@protocol_version&quot;: &quot;1.0&quot;,
+    &quot;@visibility&quot;: &quot;public&quot;,
+    &quot;@control&quot;: [&quot;ctrl, io&quot;],
+    &quot;@com1&quot;: &quot;Это файл описания протокола и только! А не самого устройства c его форматами и функциональностью!&quot;,
+    &quot;@com2&quot;: &quot;Стандартный @access = RO, Если у поля нет вложенных значений, значит указан его тип&quot;,
+    &quot;@com3&quot;: &quot;[sign][path_sz][payload_sz][op][ty][path...][payload...]&quot;,
+    &quot;@com4&quot;: &quot; header max len = 256, payload max len = 256, msg max len = 512&quot;,
+    &quot;@com5&quot;: &quot; max path len = 256 - 5, max payload data len = 256 &quot;,
+
+    &quot;ctrl&quot;: {
+        &quot;@access&quot;: &quot;RW&quot;,
+        &quot;record&quot; : &quot;bool&quot;,
+        &quot;vis&quot;: &quot;bool&quot;,
+        &quot;event&quot;: { 
+            &quot;@type&quot;: &quot;[u8]&quot;,
+            &quot;@access&quot;: &quot;WO&quot;
+        },
+        &quot;erase&quot;: &quot;()&quot;,
+        &quot;goto_loader&quot;: &quot;()&quot;
+    },
+
+    &quot;io&quot;: {
+        &quot;@access&quot;: &quot;RW&quot;,
+        &quot;status&quot;: &quot;u32&quot;,
+        &quot;file&quot;: {
+            &quot;@com&quot;: &quot;pos, len, max в блоках&quot;,
+            &quot;pos&quot;: &quot;u32&quot;,
+            &quot;len&quot;: &quot;u32&quot;,
+            &quot;start&quot;: &quot;()&quot;,
+            &quot;max&quot;: {
+                &quot;@type&quot;: &quot;u32&quot;,
+                &quot;@access&quot;: &quot;RO&quot;
+            }
+        },
+        &quot;store&quot;: {
+            &quot;@com&quot;: &quot;Max line size 64, max line count 64&quot;,
+            &quot;idx&quot;: &quot;u8&quot;,
+            &quot;line&quot;: &quot;[u8]&quot;,
+            &quot;max&quot;: {
+                &quot;@type&quot;: &quot;u32&quot;,
+                &quot;@access&quot;: &quot;RO&quot;
+            }
+        }
+    },
+
+    &quot;conf&quot;: {
+        &quot;@access&quot;: &quot;RW&quot;,
+        &quot;cyclic&quot;: &quot;bool&quot;,
+        &quot;time&quot;: &quot;u32&quot;
+    },
+
+    &quot;time&quot;: &quot;u32&quot;,
+
+    &quot;signal&quot;: {
+        &quot;@access&quot;: &quot;RW&quot;,
+        &quot;ecgf&quot;: {
+            &quot;frq&quot; :&quot;u8&quot;
+        },
+        &quot;reof&quot;: {
+            &quot;frq&quot; :&quot;u8&quot;
+        },
+        &quot;tst_sig&quot;: &quot;bool&quot;
+    },
+
+    &quot;calib&quot;: {
+        &quot;@access&quot;: &quot;RW&quot;,
+        &quot;ecg&quot;: {
+            &quot;k&quot;: &quot;i32&quot;,
+            &quot;b&quot;: &quot;i32&quot;
+        },
+        &quot;reo&quot;: {
+            &quot;k&quot;: &quot;i32&quot;,
+            &quot;b&quot;: &quot;i32&quot;
+        },
+        &quot;acc&quot;: {
+            &quot;k&quot;: &quot;i32&quot;,
+            &quot;b&quot;: &quot;i32&quot;
+        }
+    },
+
+    &quot;state&quot;: {
+        &quot;voltage&quot;: &quot;i32&quot;,
+        &quot;current&quot;: &quot;i32&quot;,
+        &quot;stop_reason&quot;: &quot;u32&quot;
+    },
+
+    &quot;desc&quot;: {             
+        &quot;@com&quot;: &quot;Общая инфорация об устройстве&quot;,
+        &quot;version&quot;: {
+            &quot;@type&quot;: &quot;str&quot;,
+            &quot;@com&quot;: &quot;Версия ПО&quot;
+        },
+        &quot;type&quot;: &quot;str&quot;,
+        &quot;serial&quot;: &quot;str&quot;
+    },
+
+    &quot;build&quot;: {        
+        &quot;@access&quot;:  &quot;RO&quot;,
+        &quot;@fast&quot;: true,
+        &quot;version&quot;:  &quot;str&quot;,
+        &quot;compiler&quot;: &quot;str&quot;,
+        &quot;git&quot;:      &quot;str&quot;,
+        &quot;timestamp&quot;:&quot;str&quot;,
+        &quot;target&quot;:   &quot;str&quot;,
+        &quot;host&quot;:     &quot;str&quot;,
+        &quot;profile&quot;:  &quot;str&quot;,
+        &quot;opt_lvl&quot;:  &quot;str&quot;,
+        &quot;debug&quot;:    &quot;bool&quot;
+    },
+
+    &quot;dbg&quot;: {
+        &quot;last&quot;: &quot;str&quot;,
+        &quot;last_code&quot;: &quot;u32&quot;,
+        &quot;flags&quot;: &quot;u32&quot;
+    },
+
+    &quot;survey&quot;: {
+        &quot;@access&quot;: &quot;RW&quot;,
+        &quot;id&quot;: &quot;u32&quot;,
+        &quot;surname&quot;: &quot;str&quot;,
+        &quot;name&quot;: &quot;str&quot;,
+        &quot;patronymic&quot;: &quot;str&quot;,
+        &quot;sex&quot;: &quot;str&quot;,
+        &quot;birth&quot;: &quot;str&quot;,
+        &quot;patient_id&quot;: &quot;str&quot;,
+        &quot;start_time&quot;: &quot;u32&quot;
+    },
+
+    &quot;test&quot;: {            
+        &quot;@access&quot;: &quot;RW&quot;,
+        &quot;@com&quot;: &quot;Тестовые регистры&quot;,
+        &quot;echo&quot; : {
+            &quot;@type&quot;: &quot;[u8]&quot;,
+            &quot;@com&quot;: &quot;Эхо тест&quot;
+        },
+        &quot;test1&quot;: &quot;[u8]&quot;,
+        &quot;test2&quot;: &quot;[u8]&quot;,
+        &quot;test3&quot;: &quot;[u8]&quot;,
+        &quot;test4&quot;: &quot;[u8]&quot;,
+        &quot;test5&quot;: &quot;[u8]&quot;,
+        &quot;error&quot;: &quot;str&quot;
+    }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../command/scheme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../bootloader.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../command/scheme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../bootloader.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../assets/mermaid.min.js"></script>
+        
+        <script type="text/javascript" src="../assets/mermaid-init.js"></script>
+        
+
+        
+
+    </body>
+</html>
